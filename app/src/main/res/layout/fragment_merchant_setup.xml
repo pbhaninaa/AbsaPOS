@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:id="@+id/merchant_setup_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.settingsFragments.TerminalOptionsSubFragments.reInstall_terminal.MerchantSetup">
+
+    <!-- LinearLayout to hold the form elements -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/title_text_size_20"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/title_text_size_25"
+            android:text="Setup Merchant"
+            android:gravity="center"
+            android:textStyle="bold"
+            />
+        <!-- EditText for capturing information -->
+        <EditText
+            android:id="@+id/agent_id_name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Agent ID" />
+
+        <!-- EditText for capturing information -->
+        <EditText
+            android:id="@+id/merchant_number_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Merchant Number" />
+
+        <!-- EditText for capturing information -->
+        <EditText
+            android:id="@+id/terminal_number_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Terminal Number" />
+        <!-- EditText for capturing information -->
+        <EditText
+            android:id="@+id/confirm_pin_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Pin" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RESONET UAT"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/title_text_size_10"
+            />
+        <!-- Button to save captured information -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Continue"
+            android:layout_gravity="center"
+            android:id="@+id/merchant_setup_button"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reconfigure Comms"
+            android:layout_gravity="center"
+            android:id="@+id/reconfigure_button"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>

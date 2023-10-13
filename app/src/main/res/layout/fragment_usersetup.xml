@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_set_up_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragments.settingsFragments.TerminalOptionsSubFragments.UserSetup">
+
+    <!-- LinearLayout to hold the form elements -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/title_text_size_20"
+        android:orientation="vertical">
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/title_text_size_25"
+        android:text="  Add New User"
+        android:gravity="center"
+        android:textStyle="bold"
+        />
+        <!-- EditText for capturing information -->
+        <EditText
+            android:id="@+id/user_name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="User Name" />
+
+        <!-- EditText for capturing information -->
+        <EditText
+            android:id="@+id/user_number_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="User Number" />
+
+        <!-- EditText for capturing information -->
+        <EditText
+            android:id="@+id/pin_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="PIN" />
+        <!-- EditText for capturing information -->
+        <EditText
+            android:id="@+id/confirm_pin_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Confirm Pin" />
+
+        <!-- Spinner (Dropdown) to select user rank -->
+        <Spinner
+            android:padding="@dimen/title_text_size_10"
+            android:layout_marginBottom="@dimen/title_text_size_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_rank_spinner"
+            android:backgroundTint="@color/grey"
+            android:background="@drawable/spinner_border" />
+
+        <!-- Button to save captured information -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:layout_gravity="center"
+            android:id="@+id/save_button"
+            />
+
+        <!-- Delete User Button -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete User"
+            android:layout_gravity="center"
+            android:id="@+id/delete_user_button"
+            />
+
+        <!-- View All Users Button -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View All Users"
+            android:layout_gravity="center"
+            android:id="@+id/view_all_users_button"
+            />
+
+        <!-- Finish Button -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Finish"
+            android:layout_gravity="center"
+            android:id="@+id/finish_button"
+            />
+    </LinearLayout>
+
+</FrameLayout>

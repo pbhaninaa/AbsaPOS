@@ -1,0 +1,44 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refund_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".fragments.tabs.RefundFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/title_text_size_16"
+        android:orientation="vertical">
+        <!-- TextView -->
+        <TextView
+            android:id="@+id/refund_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_blank_fragment"
+            android:gravity="center"
+            android:textSize="@dimen/title_text_size_20" />
+        <!-- EditText -->
+        <EditText
+            android:id="@+id/refund_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="0.00"
+            android:gravity="center"
+            android:textSize="@dimen/title_text_size_20"
+            android:inputType="numberDecimal" />
+
+        <Button
+            android:id="@+id/refund_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/title_text_size_10"
+            android:text="Confirm" />
+
+
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

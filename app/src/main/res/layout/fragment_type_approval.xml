@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/type_approval_container"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:theme="@style/white_button_theme"
+    tools:context=".fragments.settingsFragments.ReportingOptionsSubFragments.TypeApproval">
+
+    <!-- LinearLayout to hold the label, sub-layout, space, and button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/title_text_size_20"
+        android:padding="@dimen/title_text_size_16"
+        android:orientation="vertical"
+        android:gravity="center">
+        <!-- Label at the top -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type Approval"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_text_size_30" />
+        <!-- Sub-layout with icon and two-line label -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- Icon -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icasa"
+            android:layout_gravity="center_vertical" />
+
+            <!-- Two-line label -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TA-2016 / 2241"
+                    android:textSize="16dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="APPROVED"
+                    android:textSize="16dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Space for creating a gap -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_text_size_30" />
+
+        <!-- Button -->
+        <Button
+            android:id="@+id/type_approval_close_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/title_text_size_18"
+            android:text="CLOSE"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,42 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_options_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/white_button_theme"
+    tools:context=".fragments.tabs.AuthOptionsFragment"
+    >
+    <!-- Linear Layout for Buttons -->
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/title_text_size_50">
+
+        <Button
+            android:id="@+id/authOnlyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Auth Only" />
+
+        <Button
+            android:id="@+id/incrementalAuthButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Incremental Auth" />
+
+        <Button
+            android:id="@+id/authCancelButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Auth Cancel" />
+
+        <Button
+            android:id="@+id/authOverrideButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Auth Override" />
+    </LinearLayout>
+
+</FrameLayout>

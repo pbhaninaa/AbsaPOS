@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wifi_config_container"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.settingsFragments.TerminalOptionsSubFragments.WifiConfig">
+
+
+
+    <!-- LinearLayout containing buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/title_text_size_20"
+        android:orientation="vertical">
+
+        <!-- Activate Button -->
+        <Button
+            android:id="@+id/activate_wifi_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Activate" />
+
+        <!-- Deactivate Button -->
+        <Button
+            android:id="@+id/de_activate_wifi_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deactivate" />
+
+        <!-- Configure Wifi Network Button -->
+        <Button
+            android:id="@+id/configure_wifi_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Configure Wifi Network" />
+
+    </LinearLayout>
+
+</FrameLayout>

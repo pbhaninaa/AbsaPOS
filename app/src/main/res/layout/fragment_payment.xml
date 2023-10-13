@@ -1,0 +1,107 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/payment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".fragments.tabs.PaymentFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/title_text_size_16"
+        android:orientation="vertical">
+        <!-- TextView -->
+        <TextView
+            android:id="@+id/payment_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_blank_fragment"
+            android:gravity="center"
+            android:textSize="@dimen/title_text_size_20" />
+        <!-- EditText -->
+        <EditText
+            android:id="@+id/payment_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="0.00"
+            android:gravity="center"
+            android:textSize="@dimen/title_text_size_20"
+            android:inputType="numberDecimal" />
+        <!-- CheckBox -->
+        <CheckBox
+            android:id="@+id/payment_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Incremental"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"
+            />
+    <!-- Three TextViews -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/original_rrn_layout"
+        android:visibility="gone"
+        >
+        <TextView
+            android:id="@+id/rrn_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Original RRN (Last 6)"
+            android:gravity="center"
+            android:textSize="@dimen/title_text_size_20" />
+        <!-- EditText -->
+        <EditText
+            android:id="@+id/rrn_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/title_text_size_20"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+        <!-- Button -->
+        <Button
+            android:id="@+id/payment_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/title_text_size_10"
+            android:text="Confirm" />
+
+
+
+        <!-- Three TextViews -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:id="@+id/terminal_information"
+            android:layout_marginTop="@dimen/title_text_size_16"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="B:6.8.9"
+                android:layout_marginEnd="@dimen/title_text_size_16" /> <!-- Add marginEnd for spacing -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T:88168042"
+                android:layout_marginEnd="@dimen/title_text_size_16" /> <!-- Add marginEnd for spacing -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="M:10113111 VodaCom" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</FrameLayout>

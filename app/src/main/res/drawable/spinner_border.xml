@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Grey Background -->
+    <item android:drawable="@android:color/darker_gray" />
+
+    <!-- Top Border -->
+    <item android:top="0dp" android:left="-1dp" android:right="-1dp" android:bottom="2dp">
+        <shape>
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/border_color" /> <!-- Define your border color here -->
+        </shape>
+    </item>
+
+    <!-- Bottom Border -->
+    <item android:top="2dp" android:left="-1dp" android:right="-1dp" android:bottom="0dp">
+        <shape>
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/border_color" /> <!-- Define your border color here -->
+        </shape>
+    </item>
+</layer-list>
+
+

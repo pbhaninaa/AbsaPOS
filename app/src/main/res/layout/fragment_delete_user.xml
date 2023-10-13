@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/delete_user_container"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.settingsFragments.TerminalOptionsSubFragments.userSetUpSubFragments.DeleteUser">
+
+    <!-- LinearLayout to hold the elements -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/title_text_size_20">
+
+        <!-- TextView for "Delete User" label -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete User"
+            android:textSize="25sp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            />
+
+        <!-- EditText for "User Number" -->
+        <EditText
+            android:id="@+id/user_number_to_be_deleted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="User Number"
+            />
+
+            <!-- Delete Button -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:id="@+id/delete_button"
+                />
+
+            <!-- Cancel Button -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:id="@+id/cancel_button"
+                />
+
+    </LinearLayout>
+</FrameLayout>

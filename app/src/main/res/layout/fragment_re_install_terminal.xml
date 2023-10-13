@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/re_install_terminal_container"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".fragments.settingsFragments.TerminalOptionsSubFragments.ReInstallTerminal">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/title_text_size_20"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Setup Wizard"
+        android:textSize="20sp"
+        android:layout_marginBottom="@dimen/title_text_size_20"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/title_text_size_20"
+        android:gravity="center"
+        android:text="Environment"
+        android:textSize="15sp"/>
+
+    <!-- Buttons -->
+    <Button
+        android:id="@+id/production_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/title_text_size_20"
+        android:text="Production"/>
+
+    <Button
+        android:id="@+id/uat_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/title_text_size_20"
+        android:text="UAT"/>
+
+    <Button
+        android:id="@+id/query_keys_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/title_text_size_20"
+        android:text="Query Keys"/>
+
+    <Button
+        android:id="@+id/re_install_terminal_finish_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Finish"/>
+</LinearLayout>
+</ScrollView>
+</FrameLayout>

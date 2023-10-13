@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/insert_card_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.tabs.InsertCard">
+    <!-- LinearLayout with match_parent width and wrap_content height -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/title_text_size_16"
+        android:gravity="center">
+        <!-- Label -->
+        <TextView
+            android:id="@+id/labelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Insert/Tap/Swipe"
+            android:textSize="@dimen/title_text_size_20" />
+        <!-- Icon (You can replace android:src with your icon resource) -->
+        <ImageView
+            android:layout_marginTop="@dimen/title_text_size_16"
+            android:layout_width="@dimen/title_text_size_150"
+            android:layout_height="@dimen/title_text_size_150"
+            android:padding="@dimen/title_text_size_10"
+            android:src="@drawable/file"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_background"
+            android:contentDescription="Icon" />
+        <!-- Label -->
+        <TextView
+            android:layout_marginTop="@dimen/title_text_size_30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_green"
+            android:text="Enter card"
+            android:textSize="16sp" />
+        <!-- Button -->
+        <Button
+            android:layout_marginTop="@dimen/title_text_size_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manual card entry" />
+        <Button
+            android:layout_marginTop="@dimen/title_text_size_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel" />
+    </LinearLayout>
+
+    </FrameLayout>

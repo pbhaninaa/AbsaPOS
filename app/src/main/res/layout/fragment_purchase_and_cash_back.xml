@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/title_text_size_16"
+    tools:context=".fragments.tabs.PurchaseAndCashBack">
+
+    <!-- LinearLayout to hold your UI components -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- First TextView -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Purchase amount"
+            android:gravity="center"
+            android:textSize="@dimen/title_text_size_20" />
+
+        <!-- First EditText for numeric input -->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="0.00"
+            android:gravity="center"
+            android:textSize="@dimen/title_text_size_20"
+            android:inputType="number" /> <!-- Use inputType="number" for numeric input -->
+
+        <!-- Second TextView -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cashback amount"
+            android:gravity="center"
+            android:textSize="@dimen/title_text_size_20" />
+
+        <!-- Second EditText for numeric input -->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="0.00"
+            android:gravity="center"
+            android:textSize="@dimen/title_text_size_20"
+            android:inputType="numberDecimal" /> <!-- Use inputType="numberDecimal" for decimal numbers -->
+
+
+
+        <LinearLayout
+            android:id="@+id/purchase_and_cash_back_button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:visibility="visible"> <!-- Set visibility to GONE -->
+
+            <Button
+                android:id="@+id/purchase_and_cash_back_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirm"
+                android:layout_marginEnd="@dimen/title_text_size_16" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
