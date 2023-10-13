@@ -22,6 +22,7 @@ public class IncrementalAuth extends Fragment {
         View view=inflater.inflate(R.layout.fragment_incrementsl_auth, container, false);
         EditText amountTxt = view.findViewById(R.id.incremental_auth_amount);
         EditText codeTxt = view.findViewById(R.id.incremental_auth_code);
+        codeTxt.setHint("0.00");
         EditText dateTxt = view.findViewById(R.id.incremental_auth_date);
         Button button = view.findViewById(R.id.incremental_auth_btn);
         button.setOnClickListener(new View.OnClickListener() {

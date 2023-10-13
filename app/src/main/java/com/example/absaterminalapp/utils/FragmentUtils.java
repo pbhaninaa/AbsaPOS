@@ -155,6 +155,10 @@ public class FragmentUtils {
             return "";
         }
     }
-
+ public static void Refresh(Activity activity){
+     Intent intent = new Intent(activity, MainActivity.class);
+     activity.startActivity(intent);
+    activity.finish();
+ }
 
 }

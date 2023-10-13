@@ -55,7 +55,6 @@ public class CardPayment extends Fragment {
               FragmentUtils.restartApp(getContext());
             }
         });
-        //================================================================================
        FragmentUtils.TextFlickerAnimation(view,getContext());
         return view;
     }

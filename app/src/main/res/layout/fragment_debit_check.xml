@@ -17,6 +17,7 @@
 
         <!-- First TextView -->
         <TextView
+            android:id="@+id/debit_check_first_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Reference number"
@@ -35,6 +36,7 @@
 
         <!-- Second TextView -->
         <TextView
+            android:id="@+id/debit_check_second_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Instalment amount"

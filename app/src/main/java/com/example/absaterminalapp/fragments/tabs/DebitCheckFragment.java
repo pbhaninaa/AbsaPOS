@@ -11,6 +11,8 @@ import android.widget.EditText;
 import com.example.absaterminalapp.R;
 import com.example.absaterminalapp.activities.MainActivity;
 import com.example.absaterminalapp.alerts.Alerts;
+import com.example.absaterminalapp.fragments.tabs.debitCheckSubFragments.Contract;
+import com.example.absaterminalapp.fragments.tabs.debitCheckSubFragments.Identification;
 import com.example.absaterminalapp.utils.FragmentUtils;
 
 public class DebitCheckFragment extends Fragment {
@@ -32,15 +34,22 @@ public class DebitCheckFragment extends Fragment {
 
         // Set an OnClickListener for the "Continue" button
         continueButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
                 // Get the text from the EditText fields
                 String referenceNumber = referenceNumberEditText.getText().toString().trim();
                 String instalmentAmount = instalmentAmountEditText.getText().toString().trim();
 
                 if (!referenceNumber.isEmpty() && !instalmentAmount.isEmpty()) {
-                    // All fields are populated, display "Continue" alert
-                    Alerts.showAlertDialog(getActivity(), "Continue");
+                    bundle.putString("Amount",instalmentAmount);
+                    bundle.putString("referenceNumber",referenceNumber);
+                    bundle.putString("installmentAmount",instalmentAmount);
+                    Identification identification = new Identification();
+                    identification.setArguments(bundle);
+                    FragmentUtils.replaceFragment(getChildFragmentManager(),R.id.debit_check_container,identification);
+                   // To Identification =======================================================================================
                 } else {
                     // Not all fields are populated, display "Fill all the fields" alert
                     Alerts.showAlertDialog(getActivity(), "Fill all the fields");
@@ -51,16 +60,7 @@ public class DebitCheckFragment extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create an Intent to start the MainActivity
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-
-                // Add any flags or extras as needed
-
-                // Start the MainActivity
-                startActivity(intent);
-
-                // Finish the current activity (optional)
-                getActivity().finish();
+             FragmentUtils.Refresh(getActivity());
             }
         });
        return view;

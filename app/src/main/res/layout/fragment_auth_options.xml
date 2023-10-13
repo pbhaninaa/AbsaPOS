@@ -18,25 +18,31 @@
             android:id="@+id/authOnlyButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Auth Only" />
+            android:textColor="@color/black"
+            android:text="Auth Only"
+            />
 
         <Button
             android:id="@+id/incrementalAuthButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="Incremental Auth" />
 
         <Button
             android:id="@+id/authCancelButton"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:text="Auth Cancel" />
 
         <Button
             android:id="@+id/authOverrideButton"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
             android:layout_height="wrap_content"
-            android:text="Auth Override" />
+            android:text="Auth Override"
+            />
     </LinearLayout>
 
 </FrameLayout>

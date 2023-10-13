@@ -32,6 +32,7 @@ public class AuthOptionsFragment extends Fragment {
         });
 
         incrementalAuthButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();

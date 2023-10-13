@@ -1,38 +1,24 @@
 package com.example.absaterminalapp.activities;
 
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
-
-import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
-
 import com.example.absaterminalapp.R;
 import com.example.absaterminalapp.adapters.MyPagerAdapter;
-import com.example.absaterminalapp.alerts.Alerts;
-import com.example.absaterminalapp.fragments.settingsFragments.MerchantOptions;
-import com.example.absaterminalapp.fragments.settingsFragments.MoreAppsOptions;
-import com.example.absaterminalapp.fragments.settingsFragments.ReportingOptions;
-import com.example.absaterminalapp.fragments.settingsFragments.TerminalOptions;
 import com.example.absaterminalapp.usermanagement.SignIn;
 import com.example.absaterminalapp.utils.FragmentUtils;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
-
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private View contentLayout;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

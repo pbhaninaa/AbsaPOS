@@ -2,18 +2,19 @@ package com.example.absaterminalapp.fragments.shared;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.absaterminalapp.R;
 import com.example.absaterminalapp.alerts.Alerts;
 import com.example.absaterminalapp.fragments.tabs.PurchaseFragment;
 import com.example.absaterminalapp.utils.FragmentUtils;
-import com.google.android.material.tabs.TabLayout;
 
 public class ManualCardEntry extends Fragment {
 
@@ -24,7 +25,37 @@ public class ManualCardEntry extends Fragment {
 
         EditText cardNumberEditText = view.findViewById(R.id.card_number);
         EditText cvvEditText = view.findViewById(R.id.cvv);
-        EditText expiryDateEditText = view.findViewById(R.id.expiry_date);
+        // Assuming you have already found your EditText view
+        final EditText expiryDateEditText = view.findViewById(R.id.expiry_date);
+
+        expiryDateEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Not needed for this implementation
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Not needed for this implementation
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = s.toString();
+
+
+                if ( text.charAt(1) != '/') {
+                    // Add a slash ("/") after the second character
+                    s.insert(2, "/");
+                }
+
+
+                // Ensure that only the first 4 characters are captured
+                if (text.length() > 4) {
+                    s.delete(4, text.length());
+                }
+            }
+        });
 
         Button confirmButton = view.findViewById(R.id.manual_card_confirm_btn);
         Button cancelButton = view.findViewById(R.id.manual_card_cancel_btn);
@@ -70,7 +101,7 @@ public class ManualCardEntry extends Fragment {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentUtils.replaceFragment(getFragmentManager(), R.id.manual_card_entry_container, new PurchaseFragment());
+                FragmentUtils.Refresh(getActivity());
             }
         });
 
