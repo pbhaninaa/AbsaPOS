@@ -17,6 +17,9 @@ import com.example.absaterminalapp.fragments.tabs.PurchaseFragment;
 import com.example.absaterminalapp.utils.DateFormatterUtil;
 import com.example.absaterminalapp.utils.FragmentUtils;
 
+import java.util.Iterator;
+import java.util.Set;
+
 public class ManualCardEntry extends Fragment {
 
     @Override
@@ -28,7 +31,7 @@ public class ManualCardEntry extends Fragment {
         FragmentUtils.cardNumber(cardNumberEditText);
         EditText cvvEditText = view.findViewById(R.id.cvv);
         FragmentUtils.cvv(cvvEditText);
-       EditText expiryDateEditText = view.findViewById(R.id.expiry_date);
+        EditText expiryDateEditText = view.findViewById(R.id.expiry_date);
         DateFormatterUtil.formatDateInput(expiryDateEditText);
 
         Button confirmButton = view.findViewById(R.id.manual_card_confirm_btn);
@@ -40,13 +43,12 @@ public class ManualCardEntry extends Fragment {
                 // Get text from the EditText fields
                 String cardNumber = cardNumberEditText.getText().toString().trim();
                 String cvv = cvvEditText.getText().toString().trim();
-
                 String expiryDate = expiryDateEditText.getText().toString().trim();
-
+                Bundle bundle = getArguments();
                 // Check if all fields are filled
                 if (FragmentUtils.isValidCardNumber(getActivity(),cardNumber,cvv)) {
 
-                    Bundle bundle = getArguments();
+
                     // adding the values of this fragment to bundle
                     bundle.putString("Card Number", cardNumber);
                     bundle.putString("CVV", cvv);
@@ -60,7 +62,9 @@ public class ManualCardEntry extends Fragment {
                     } else {
                         // getting the entered amount fro the bundle that was populated from the last fragment
                         String Amount = bundle.getString("Amount");
-                        double amount = Double.parseDouble(Amount);
+                        double amount = calculateTotalAmountInRands(Amount);
+                        System.out.println("Total Amount in Rands: " + amount+"====================================");
+
                         if (amount > 500) {
                             PaymentType paymentType = new PaymentType();
                             paymentType.setArguments(bundle);
@@ -82,4 +86,21 @@ public class ManualCardEntry extends Fragment {
 
         return view;
     }
+    public static double calculateTotalAmountInRands(String Amount) {
+        // Remove the comma and then parse the string into dollars
+        String cleanedValue = Amount.replace(",", "");
+
+        // Extract the last two characters as cents and convert to an integer
+        int cents = Integer.parseInt(cleanedValue.substring(cleanedValue.length() - 3));
+
+        // Extract the remaining characters as rands and convert to a double
+        double rands = Double.parseDouble(cleanedValue.substring(0, cleanedValue.length() - 2));
+
+        // Calculate the total amount in rands and cents
+        double totalAmountInRands = rands + cents / 100.00;
+
+        return totalAmountInRands;
+    }
+
+
 }

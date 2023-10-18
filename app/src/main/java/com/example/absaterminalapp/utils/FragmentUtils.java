@@ -93,7 +93,7 @@ public class FragmentUtils {
             return true; 
         } else {
             Alerts.showAlertDialog(activity,"Invalid card information");
-            return false
+            return false;
         }
     }
     public static Fragment FragmentFactory(String FragmentToLoad) {
