@@ -23,7 +23,7 @@ public class CurrencyFormatterUtil {
             public void afterTextChanged(Editable editable) {
                 String newText = editable.toString();
                 if (!newText.equals(current)) {
-                    String cleanString = newText.replaceAll("[^\\d.]", "");
+                    String cleanString = newText.replaceAll("[^\\d,]", "");
                     // Limit the maximum length to 11 characters
                     if (cleanString.length() > 11) {
                         cleanString = cleanString.substring(0, 11);
@@ -39,5 +39,20 @@ public class CurrencyFormatterUtil {
                 }
             }
         });
+    }
+    public static double stringToRands(String Amount) {
+        // Remove the comma and then parse the string into dollars
+        String cleanedValue = Amount.replace(",", "");
+
+        // Extract the last two characters as cents and convert to an integer
+        int cents = Integer.parseInt(cleanedValue.substring(cleanedValue.length() - 3));
+
+        // Extract the remaining characters as rands and convert to a double
+        double rands = Double.parseDouble(cleanedValue.substring(0, cleanedValue.length() - 2));
+
+        // Calculate the total amount in rands and cents
+        double totalAmountInRands = rands + cents / 100.00;
+
+        return totalAmountInRands;
     }
 }

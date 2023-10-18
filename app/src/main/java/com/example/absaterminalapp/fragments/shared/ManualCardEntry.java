@@ -14,6 +14,7 @@ import android.widget.EditText;
 import com.example.absaterminalapp.R;
 import com.example.absaterminalapp.alerts.Alerts;
 import com.example.absaterminalapp.fragments.tabs.PurchaseFragment;
+import com.example.absaterminalapp.utils.CurrencyFormatterUtil;
 import com.example.absaterminalapp.utils.DateFormatterUtil;
 import com.example.absaterminalapp.utils.FragmentUtils;
 
@@ -62,7 +63,7 @@ public class ManualCardEntry extends Fragment {
                     } else {
                         // getting the entered amount fro the bundle that was populated from the last fragment
                         String Amount = bundle.getString("Amount");
-                        double amount = calculateTotalAmountInRands(Amount);
+                        double amount = CurrencyFormatterUtil.stringToRands(Amount);
                         System.out.println("Total Amount in Rands: " + amount+"====================================");
 
                         if (amount > 500) {
@@ -86,21 +87,7 @@ public class ManualCardEntry extends Fragment {
 
         return view;
     }
-    public static double calculateTotalAmountInRands(String Amount) {
-        // Remove the comma and then parse the string into dollars
-        String cleanedValue = Amount.replace(",", "");
 
-        // Extract the last two characters as cents and convert to an integer
-        int cents = Integer.parseInt(cleanedValue.substring(cleanedValue.length() - 3));
-
-        // Extract the remaining characters as rands and convert to a double
-        double rands = Double.parseDouble(cleanedValue.substring(0, cleanedValue.length() - 2));
-
-        // Calculate the total amount in rands and cents
-        double totalAmountInRands = rands + cents / 100.00;
-
-        return totalAmountInRands;
-    }
 
 
 }
