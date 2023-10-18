@@ -16,6 +16,7 @@ import com.example.absaterminalapp.alerts.Alerts;
 import com.example.absaterminalapp.fragments.shared.CardPayment;
 import com.example.absaterminalapp.fragments.shared.InvoiceNumber;
 import com.example.absaterminalapp.usermanagement.SignIn;
+import com.example.absaterminalapp.utils.CurrencyFormatterUtil;
 import com.example.absaterminalapp.utils.FragmentUtils;
 
 public class PaymentReversalFragment extends Fragment {
@@ -27,6 +28,7 @@ public class PaymentReversalFragment extends Fragment {
         TextView paymentLabel = view.findViewById(R.id.payment_reversal_label);
         paymentLabel.setText("Payment reversal amount");
         EditText Value = view.findViewById(R.id.payment_reversal_value);
+        CurrencyFormatterUtil.formatCurrencyInput(Value);
         Button button = view.findViewById(R.id.payment_reversal_button);
 
         button.setOnClickListener(new View.OnClickListener() {

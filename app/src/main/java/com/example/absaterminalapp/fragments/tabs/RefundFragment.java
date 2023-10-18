@@ -16,6 +16,7 @@ import com.example.absaterminalapp.alerts.Alerts;
 import com.example.absaterminalapp.fragments.shared.CardPayment;
 import com.example.absaterminalapp.fragments.shared.InvoiceNumber;
 import com.example.absaterminalapp.usermanagement.SignIn;
+import com.example.absaterminalapp.utils.CurrencyFormatterUtil;
 import com.example.absaterminalapp.utils.FragmentUtils;
 
 
@@ -28,6 +29,7 @@ public class RefundFragment extends Fragment {
         TextView paymentLabel = view.findViewById(R.id.refund_label);
         paymentLabel.setText("Refund amount");
         EditText Value = view.findViewById(R.id.refund_value);
+        CurrencyFormatterUtil.formatCurrencyInput(Value);
         Button button = view.findViewById(R.id.refund_button);
 
         button.setOnClickListener(new View.OnClickListener() {

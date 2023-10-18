@@ -7,6 +7,8 @@
     <color name="my_light_primary">#af164c</color>
     <color name="red">#e9335c</color>
     <color name="dark_green">#2E4F4F</color>
+    <color name="dark_sea_green">#445D48</color>
+    <color name="darker_green">#004225</color>
     <color name="border_color">#FF000000</color>
     <color name="orange">#CD5C08</color>
 </resources>

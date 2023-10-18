@@ -36,9 +36,19 @@ public class CardPayment extends Fragment {
         if (bundle != null) {
             String TotalAmount = bundle.getString("Amount");
             // Check if TotalAmount is not empty
+
             if (TotalAmount != null && !TotalAmount.isEmpty()) {
+                String amount;
                 TextView label = view.findViewById(R.id.amount_to_pay);
-                label.setText("Total amount: R" + TotalAmount);
+                if(TotalAmount.length() < 3 ){
+                    amount = "0,"+TotalAmount;
+                    label.setText("Total amount: R "+amount);
+                    bundle.putString("Amount",amount);
+                }else{
+                    label.setText("Total amount: R "+TotalAmount);
+                }
+
+
             }
         }
         ManualCardEntryBtn.setOnClickListener(new View.OnClickListener() {

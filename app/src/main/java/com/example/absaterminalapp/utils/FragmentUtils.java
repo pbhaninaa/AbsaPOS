@@ -7,9 +7,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,25 +33,23 @@ import com.example.absaterminalapp.fragments.shared.CardPayment;
 import com.example.absaterminalapp.fragments.shared.InvoiceNumber;
 import com.example.absaterminalapp.fragments.tabs.PurchaseFragment;
 
+import java.text.DecimalFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FragmentUtils {
     private TextView flickerTextView;
     private static Animation flickerAnimation;
-    // Replace the current fragment with a new fragment
     public static void replaceFragment(FragmentManager fragmentManager, int containerId, Fragment fragment) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(containerId, fragment);
-        transaction.addToBackStack(null); // Optional: Add the transaction to the back stack
+        transaction.addToBackStack(null); 
         transaction.commit();
     }
     public static void restartApp(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
-
-        // If this method is called from an activity, you may also want to finish the current activity
         if (context instanceof Activity) {
             ((Activity) context).finish();
         }
@@ -56,57 +57,43 @@ public class FragmentUtils {
     public static void TextFlickerAnimation(View view, Context context) {
         TextView flickerTextView = view.findViewById(R.id.flicker_textview);
         Animation flickerAnimation = AnimationUtils.loadAnimation(context, R.anim.flicker_animation);
-
-        // Start the initial flicker animation
         flickerTextView.startAnimation(flickerAnimation);
 
-        // Create a handler to restart the animation after it finishes
         final Handler handler = new Handler(Looper.getMainLooper());
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Start the animation again after it finishes
                 flickerTextView.startAnimation(flickerAnimation);
                 handler.postDelayed(this, flickerAnimation.getDuration());
             }
         }, flickerAnimation.getDuration());
 
-        // Set the text color using a color resource
-        int color = ContextCompat.getColor(context, R.color.red); // Assuming "red" is a valid color resource
+        int color = ContextCompat.getColor(context, R.color.red); 
         flickerTextView.setTextColor(color);
     }
     public static void ImageFlickerAnimation(View view, Context context) {
         ImageView flickerTextView = view.findViewById(R.id.terminalIcon);
         Animation flickerAnimation = AnimationUtils.loadAnimation(context, R.anim.flicker_animation);
 
-        // Start the initial flicker animation
         flickerTextView.startAnimation(flickerAnimation);
 
-        // Create a handler to restart the animation after it finishes
         final Handler handler = new Handler(Looper.getMainLooper());
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Start the animation again after it finishes
                 flickerTextView.startAnimation(flickerAnimation);
                 handler.postDelayed(this, flickerAnimation.getDuration());
             }
         }, flickerAnimation.getDuration());
-
-        // Set the text color using a color resource
-       // int color = ContextCompat.getColor(context, R.color.red); // Assuming "red" is a valid color resource
-        //flickerTextView.setTextColor(color);
     }
     public static boolean isValidCardNumber(Activity activity,String cardNumber, String cvv) {
-        // Remove any whitespace or non-digit characters from the card number
         cardNumber = cardNumber.replaceAll("[^\\d]", "");
         cvv = cvv.replaceAll("[^\\d]", "");
-        // Check if the cleaned card number has exactly 16 digits and cvv is exactly 3 digits
         if (cardNumber.length() == 16 && cvv.length() ==3) {
-            return true; // Valid card number and cvv
+            return true; 
         } else {
             Alerts.showAlertDialog(activity,"Invalid card information");
-            return false; // Invalid card number and cvv
+            return false
         }
     }
     public static Fragment FragmentFactory(String FragmentToLoad) {
@@ -143,7 +130,6 @@ public class FragmentUtils {
 
         return fragment;
     }
-
     public static String extractFirstWord(String input) {
         Pattern pattern = Pattern.compile("^\\S+");
         Matcher matcher = pattern.matcher(input);
@@ -151,14 +137,84 @@ public class FragmentUtils {
         if (matcher.find()) {
             return matcher.group();
         } else {
-            // Handle the case where there's no word before the first space
             return "";
         }
     }
- public static void Refresh(Activity activity){
+    public static void Refresh(Activity activity){
      Intent intent = new Intent(activity, MainActivity.class);
      activity.startActivity(intent);
     activity.finish();
  }
+    public static void cardNumber(EditText editText) {
 
+        editText.addTextChangedListener(new TextWatcher() {
+            private String card = "";
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                String newText = editable.toString();
+                if (!newText.equals(card)) {
+                    String cleanString = newText.replaceAll("[^\\d ]", "");
+                    if (cleanString.length() > 16) {
+                        cleanString = cleanString.substring(0, 16);
+                    }
+                    try {
+                        StringBuilder formattedText = new StringBuilder(cleanString);
+
+
+                        card = formattedText.toString();
+                        editText.setText(card);
+                        editText.setSelection(card.length());
+                    } catch (NumberFormatException e) {
+                    }
+                }
+            }
+        });
+    }
+    public static void cvv(EditText editText){
+
+    editText.addTextChangedListener(new TextWatcher() {
+        private String cvv = "";
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+            String newText = editable.toString();
+            if (!newText.equals(cvv)) {
+                String cleanString = newText.replaceAll("[^\\d.]", "");
+                if (cleanString.length() > 3) {
+                    cleanString = cleanString.substring(0, 3);
+                }
+                try {
+                    StringBuilder formattedText = new StringBuilder(cleanString);
+
+
+                    cvv = formattedText.toString();
+                    editText.setText(cvv);
+                    editText.setSelection(cvv.length());
+                } catch (NumberFormatException e) {
+                }
+            }
+        }
+    });
+
+
+}
 }

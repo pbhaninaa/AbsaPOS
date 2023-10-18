@@ -1,6 +1,9 @@
 package com.example.absaterminalapp.fragments.tabs;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +15,12 @@ import android.widget.TextView;
 import com.example.absaterminalapp.R;
 import com.example.absaterminalapp.alerts.Alerts;
 import com.example.absaterminalapp.fragments.shared.CardPayment;
-import com.example.absaterminalapp.fragments.shared.InvoiceNumber;
+import com.example.absaterminalapp.utils.CurrencyFormatterUtil;
 import com.example.absaterminalapp.utils.FragmentUtils;
-public class PurchaseFragment extends Fragment {
 
+import java.text.DecimalFormat;
+
+public class PurchaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -26,6 +31,8 @@ public class PurchaseFragment extends Fragment {
         // Set its visibility to visible
         terminalInformation.setVisibility(View.VISIBLE);
         EditText Value = view.findViewById(R.id.payment_value);
+        CurrencyFormatterUtil.formatCurrencyInput(Value);
+
         Button button = view.findViewById(R.id.payment_button);
 
         button.setOnClickListener(new View.OnClickListener() {

@@ -29,13 +29,13 @@ public class InvoiceNumber extends Fragment {
         // Find the LinearLayout view by its id
         LinearLayout terminalInformation = view.findViewById(R.id.terminal_information);
 
-        EditText Value = view.findViewById(R.id.payment_value);
-        Value.setHint(R.string.empty);
+        EditText invoiceNumber = view.findViewById(R.id.payment_value);
+        invoiceNumber.setHint(R.string.empty);
         Button button = view.findViewById(R.id.payment_button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!Value.getText().toString().isEmpty()) {
+                if (!invoiceNumber.getText().toString().isEmpty()) {
                     // Perform an action when the EditText is not empty
                      Bundle bundle = getArguments();
                     if (bundle != null) {
@@ -45,7 +45,7 @@ public class InvoiceNumber extends Fragment {
                            // The bundle contains the rapid payment amount to be used here
                            Alerts.showAlertDialog(getActivity(),"Rapid payment");
                         }else{
-                        String inputValue = Value.getText().toString().trim();
+                        String inputValue = invoiceNumber.getText().toString().trim();
                         bundle.putString("Invoice Number",inputValue);
                         CardPayment cardPayment = new CardPayment();
                         cardPayment.setArguments(bundle);
