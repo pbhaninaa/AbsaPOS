@@ -2,18 +2,28 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Outer Circle -->
     <item android:top="2dp" android:right="2dp" android:bottom="2dp" android:left="2dp">
-        <shape android:shape="oval">
+        <shape android:shape="oval" >
             <solid android:color="@android:color/transparent" />
             <stroke
-                android:width="2dp"
-                android:color="@color/grey"
-            />
+                android:width="0.1dp"
+                android:color="@color/my_light_primary"
+                />
         </shape>
     </item>
     <!-- Inner Circle -->
-    <item android:top="4dp" android:right="4dp" android:bottom="4dp" android:left="4dp">
+    <item android:top="8dp" android:right="8dp" android:bottom="8dp" android:left="8dp">
+        <shape android:shape="oval">
+
+            <stroke
+                android:width="0.1dp"
+                android:color="@color/my_light_primary" /> <!-- Replace with your desired background color -->
+        </shape>
+    </item>
+    <!-- Smaller Circle (Centered within Inner Circle) -->
+    <item android:top="9dp" android:right="9dp" android:bottom="9dp" android:left="9dp">
         <shape android:shape="oval">
             <solid android:color="@color/white" /> <!-- Replace with your desired background color -->
         </shape>
     </item>
 </layer-list>
+

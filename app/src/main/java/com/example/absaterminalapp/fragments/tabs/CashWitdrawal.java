@@ -16,6 +16,7 @@ import com.example.absaterminalapp.R;
 import com.example.absaterminalapp.alerts.Alerts;
 import com.example.absaterminalapp.fragments.shared.CardPayment;
 import com.example.absaterminalapp.fragments.shared.InvoiceNumber;
+import com.example.absaterminalapp.utils.CurrencyFormatterUtil;
 import com.example.absaterminalapp.utils.FragmentUtils;
 
 public class CashWitdrawal extends Fragment {
@@ -25,8 +26,8 @@ public class CashWitdrawal extends Fragment {
         View view = inflater.inflate(R.layout.fragment_payment, container, false);
         TextView paymentLabel = view.findViewById(R.id.payment_label);
         paymentLabel.setText("Cash amount");
-        LinearLayout terminalInformation = view.findViewById(R.id.terminal_information);
         EditText Value = view.findViewById(R.id.payment_value);
+        CurrencyFormatterUtil.formatCurrencyInput(Value);
         Button button = view.findViewById(R.id.payment_button);
 
         button.setOnClickListener(new View.OnClickListener() {

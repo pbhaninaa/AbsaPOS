@@ -17,6 +17,7 @@ import com.example.absaterminalapp.alerts.Alerts;
 import com.example.absaterminalapp.fragments.shared.CardPayment;
 import com.example.absaterminalapp.fragments.tabs.authOptionsSubFragments.IncrementalAuth;
 import com.example.absaterminalapp.usermanagement.SignIn;
+import com.example.absaterminalapp.utils.CurrencyFormatterUtil;
 import com.example.absaterminalapp.utils.FragmentUtils;
 
 public class PaymentFragment extends Fragment {
@@ -29,6 +30,7 @@ public class PaymentFragment extends Fragment {
         TextView paymentLabel = view.findViewById(R.id.payment_label);
         paymentLabel.setText("Purchase amount");
         EditText valueEditText = view.findViewById(R.id.payment_value);
+        CurrencyFormatterUtil.formatCurrencyInput(valueEditText);
 
         Bundle bundle = getArguments();
         if (bundle != null) {

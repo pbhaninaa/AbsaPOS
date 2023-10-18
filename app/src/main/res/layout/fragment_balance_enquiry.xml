@@ -19,11 +19,10 @@
                 <ImageView
                     android:layout_width="@dimen/title_text_size_150"
                     android:layout_height="@dimen/title_text_size_150"
-                    android:padding="@dimen/title_text_size_20"
-                    android:src="@drawable/file"
-                    android:tint="@color/my_light_primary"
+                    android:padding="@dimen/title_text_size_30"
+                    android:src="@drawable/balance_file_icon"
                     android:layout_gravity="center"
-                    android:background="@drawable/circle_background"
+                    android:background="@drawable/linear_gradient"
                     android:contentDescription="Icon" />
 
                 <!-- TextView with "Cancel Transaction" -->

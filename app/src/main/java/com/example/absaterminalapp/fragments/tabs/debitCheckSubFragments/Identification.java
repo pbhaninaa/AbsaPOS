@@ -1,23 +1,23 @@
-package com.example.absaterminalapp.fragments.tabs;
+package com.example.absaterminalapp.fragments.tabs.debitCheckSubFragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import com.example.absaterminalapp.R;
 import com.example.absaterminalapp.activities.MainActivity;
 import com.example.absaterminalapp.alerts.Alerts;
-import com.example.absaterminalapp.fragments.tabs.debitCheckSubFragments.Contract;
-import com.example.absaterminalapp.fragments.tabs.debitCheckSubFragments.Identification;
-import com.example.absaterminalapp.utils.CurrencyFormatterUtil;
 import com.example.absaterminalapp.utils.FragmentUtils;
 
-public class DebitCheckFragment extends Fragment {
-
+public class Identification extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -31,27 +31,34 @@ public class DebitCheckFragment extends Fragment {
         // Find the EditText fields by their IDs
         EditText referenceNumberEditText = view.findViewById(R.id.debit_check_reference_number);
         EditText instalmentAmountEditText = view.findViewById(R.id.debit_check_instalment_amount);
-        CurrencyFormatterUtil.formatCurrencyInput(instalmentAmountEditText);
-
+        referenceNumberEditText.setHint("0000000000000");
+        instalmentAmountEditText.setHint("1401524086");
+        TextView firstLabel = view.findViewById(R.id.debit_check_first_label);
+        TextView secondLabel = view.findViewById(R.id.debit_check_second_label);
+        firstLabel.setText("Identification Number");
+          secondLabel.setText("Account Number");
 
         // Set an OnClickListener for the "Continue" button
         continueButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-                Bundle bundle = new Bundle();
+
+
                 // Get the text from the EditText fields
                 String referenceNumber = referenceNumberEditText.getText().toString().trim();
                 String instalmentAmount = instalmentAmountEditText.getText().toString().trim();
 
+
                 if (!referenceNumber.isEmpty() && !instalmentAmount.isEmpty()) {
-                    bundle.putString("Amount",instalmentAmount);
-                    bundle.putString("referenceNumber",referenceNumber);
-                    bundle.putString("installmentAmount",instalmentAmount);
-                    Identification identification = new Identification();
-                    identification.setArguments(bundle);
-                    FragmentUtils.replaceFragment(getChildFragmentManager(),R.id.debit_check_container,identification);
-                   // To Identification =======================================================================================
+                    Bundle bundle = getArguments();
+                    if (bundle != null) {
+                        bundle.putString("identificationNumber", referenceNumber);
+                        bundle.putString("accountNumber", instalmentAmount);
+                        Contract contract = new Contract();
+                        contract.setArguments(bundle);
+                        FragmentUtils.replaceFragment(getChildFragmentManager(),R.id.debit_check_container,contract);
+                        // To Contract ==========================================================================================================================
+                    }
                 } else {
                     // Not all fields are populated, display "Fill all the fields" alert
                     Alerts.showAlertDialog(getActivity(), "Fill all the fields");
@@ -62,9 +69,18 @@ public class DebitCheckFragment extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             FragmentUtils.Refresh(getActivity());
+                // Create an Intent to start the MainActivity
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+
+                // Add any flags or extras as needed
+
+                // Start the MainActivity
+                startActivity(intent);
+
+                // Finish the current activity (optional)
+                getActivity().finish();
             }
         });
-       return view;
+        return view;
     }
 }

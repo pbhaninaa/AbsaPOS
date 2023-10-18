@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.absaterminalapp.R;
 import com.example.absaterminalapp.alerts.Alerts;
 import com.example.absaterminalapp.fragments.shared.InvoiceNumber;
+import com.example.absaterminalapp.utils.CurrencyFormatterUtil;
 import com.example.absaterminalapp.utils.FragmentUtils;
 
 public class Rapid_PaymentFragment extends Fragment {
@@ -25,6 +26,7 @@ public class Rapid_PaymentFragment extends Fragment {
         TextView paymentLabel = view.findViewById(R.id.rapid_payment_label);
         paymentLabel.setText("Rapid payment amount");
         EditText Value = view.findViewById(R.id.rapid_payment_value);
+        CurrencyFormatterUtil.formatCurrencyInput(Value);
         Button button = view.findViewById(R.id.rapid_payment_button);
 
         button.setOnClickListener(new View.OnClickListener() {
